@@ -2,20 +2,28 @@
 .import "moment.js" as MomentJS
 .import "moment-timezone.js" as MomentTimezone
 
-function getTimeInTimezone(timezone, use24Hour) {
+function getTimeInTimezone(timezone, format) {
+    var displayFormat = format ? format : "HH:mm";
+    
     try {
         // Check if moment is available in global scope
-        if (typeof moment !== 'undefined') {
-            const format = use24Hour ? "HH:mm" : "h:mm A"
-            return moment().tz(timezone).format(format)
-        } else {
-            return "moment.js not available"
+        var m = (typeof MomentJS !== 'undefined' && MomentJS.moment) ? MomentJS.moment : 
+                (typeof moment !== 'undefined') ? moment : null;
+
+        if (!m) return "No Moment";
+
+        // Check if the tz function exists
+        if (typeof m.tz !== 'function') {
+             return m().format(displayFormat); 
         }
+
+        return m.tz(timezone).format(displayFormat);
+        
     } catch (e) {
-        return "invalid timezone"
+        return "Format Error";
     }
 }
 
 function isMomentAvailable() {
-    return typeof moment !== 'undefined'
+    return (typeof MomentJS !== 'undefined' && MomentJS.moment);
 }
