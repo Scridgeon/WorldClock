@@ -22,6 +22,10 @@
       "type": "boolean",
       "default": false
     },
+    "worldClockUse12h": {
+        "type": "boolean",
+        "default": true
+    },
     "worldClockTimezones": {
       "type": "array",
       "default": [],
