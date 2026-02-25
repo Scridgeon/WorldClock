@@ -2,9 +2,7 @@
 
 A plugin that displays multiple timezones in the DMS bar.
 
-<img alt="WorldClock plugin" src="screenshot.png" />
-
-
+<img width="356" height="295" alt="screenshot" src="https://github.com/user-attachments/assets/01989068-aa8e-4108-b75c-e41b89bbb35f" />
 
 ## Installation
 
