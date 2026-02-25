@@ -15,6 +15,13 @@ PluginSettings {
         defaultValue: false
     }
 
+    ToggleSetting {
+        settingKey: "use12h"
+        label: "Use 12-hour format"
+        description: "Display time in 12-hour format (AM/PM)"
+        defaultValue: false
+    }
+
     ListSettingWithInput {
         settingKey: "timezones"
         label: "Timezones"
